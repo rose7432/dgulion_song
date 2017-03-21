@@ -1,0 +1,19 @@
+<div id="wrapper">
+
+    <%= render partial: "sticky/mainMenu" %>
+    <%= render "sticky/pageHeader", name: "Board" %>
+
+    <div class="col-md-8 col-md-offset-2">
+        <p>
+          <strong>Title:</strong>
+          <%= @sch.title %>
+        </p>
+
+        <p>
+          <strong>date:</strong>
+          <%= @sch.date %>
+        </p>
+    </div>
+</div>
+    <%= render partial: "sticky/footer" %>
+    <%= render partial: "script"%>

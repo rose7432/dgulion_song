@@ -1,0 +1,81 @@
+<div id="wrapper">
+
+    <%= render partial: "sticky/mainMenu" %>
+    <%= render "sticky/pageHeader", name: "Board" %>
+
+
+
+    <div class="col-md-8 col-md-offset-2">
+        <table>
+            <tbody>
+                <tr>
+                    <td>일정|학생</td>
+                    <% @users.each do |user|%>
+                    <td><%= user.name %></td>
+                    <%end%>
+                </tr>
+                <% @schs.each do |sch|%>
+                <tr>
+                    <td><a class="btn btn-default" href="<%=url_for(controller: :att, action: :show, id: sch.id)%>"  role="button">
+                        <%= sch.title %>
+                    </td></a>
+
+                    <% sch.atts.each do |att|%>
+                        <% if att.status == true%>
+
+                        <td style="background: red">
+                            <a class="btn btn-default" href="<%=url_for(controller: :att, action: :update, id: att.id)%>"  role="button"    style="background: red">
+                                <%= att.status %>
+                            </a>
+                        </td>
+                        <% else %>
+                        <td>
+                            <a class="btn btn-default" href="<%=url_for(controller: :att, action: :update, id: att.id)%>"  role="button">
+                                <%= att.status %>
+                            </a>
+                        </td>
+                        <% end %>
+                    <%end%>
+                </tr>d
+                <%end%>
+                <tbody>
+        </table>
+
+        <section>
+            <div class="container">
+        					<div class="table-responsive">
+        						<table class="table table-bordered table-vertical-middle">
+        							<thead>
+        								<tr>
+        									<th>프로필</th>
+        									<th>이름</th>
+        									<th>Ratings</th>
+        									<th>누적 출석률</th>
+        									<th>출석 체크</th>
+        								</tr>
+        							</thead>
+        							<tbody>
+                                    <%# @sch.users.each do |user|%>
+
+        								<tr>
+        									<td class="text-center"><img src="assets/images/male.png" alt="" width="20"></td>
+                                        <td><div class="rating rating-0 size-13 width-100"><!-- rating-0 ... rating-5 --></div></td>
+        									<td>
+        										<div class="progress progress-xxs margin-bottom-0">
+        											<div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; min-width: 2em;">
+        												<span class="sr-only">80% Complete</span>
+        											</div>
+        										</div>
+        									</td>
+                                        <td>--</td>
+                                        <td>---</td>
+                                        </tr>
+        							</tbody>
+        						</table>
+        					</div>
+        </section>
+    </div>
+</div>
+
+        <%= render partial: "sticky/footer" %>
+        <%= render partial: "script"%>

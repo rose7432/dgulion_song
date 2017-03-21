@@ -1,0 +1,25 @@
+<div id="wrapper">
+
+    <%= render partial: "sticky/mainMenu" %>
+    <%= render "sticky/pageHeader", name: "Board" %>
+
+    <div class="col-md-8 col-md-offset-2">
+        <%= form_for :sch, url:{action: "create"} do |f| %>
+          <p>
+            <%= f.label :title %><br>
+            <%= f.text_field :title %>
+          </p>
+
+          <p>
+            <%= f.label :date %><br>
+            <%= f.date_field :date%>
+          </p>
+
+          <p>
+            <%= f.submit %>
+          </p>
+        <% end %>
+    </div>
+</div>
+    <%= render partial: "sticky/footer" %>
+    <%= render partial: "script"%>
